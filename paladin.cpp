@@ -21,7 +21,6 @@ void Paladin::Create()
     cout << "Вы создали Паладина\nЗадайте имя игрока\n";
     cin >> name;
 
-    GetInfo();
     LearnSpell();
     GetWeapon();
 }

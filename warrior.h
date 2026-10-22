@@ -18,6 +18,6 @@ public:
 
     void Create() override;
     void GetInfo() override;
-    void GetWeapon();
+    Weapon& GetWeapon();
     void Recalculate();
 };

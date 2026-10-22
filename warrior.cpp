@@ -30,7 +30,6 @@ void Warrior::Create()
     cout << "Вы создали война\nЗадайте имя игрока\n";
     cin >> name;
 
-    GetInfo();
     GetWeapon();
 }
 
@@ -40,15 +39,20 @@ void Warrior::GetInfo()
     cout << "Сила " << strenght << endl;
 }
 
-void Warrior::GetWeapon()
+Weapon& Warrior::GetWeapon()
 {
-    Weapon weapon;
-    weapon.damage = 1;
-    weapon.name = "Кулаки";
-    weapons.push_back(weapon);
+    if (weapons.empty())
+    {
+        Weapon weapon;
+        weapon.damage = 1;
+        weapon.name = "Кулаки";
+        weapons.push_back(weapon);
 
-    cout << name << " взял в руки оружие " << weapons[0].name << endl;
-    cout << "Добавка к урона = " << weapons[0].damage << endl;
+        cout << name << " взял в руки оружие " << weapons.back().name << endl;
+        cout << "Добавка к урона = " << weapons.back().damage << endl;
+    }
+
+    return weapons.back();
 }
 
 void Warrior::Recalculate()
